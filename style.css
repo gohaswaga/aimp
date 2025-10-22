@@ -116,4 +116,5 @@ audio {
   width: 100%;
   margin-top: 15px;
   accent-color: #ffffff;
+  cursor: pointer;
 }
