@@ -6,53 +6,28 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
+
   <div id="track-list">
-  <h2>Список треков</h2>
-  <ul>
-    <li onclick="selectTrack(0)">
-      <div class="track-item">
-        <img class = "image" src="assets/ooes.jpg" >
-        <span>Зима — ooes</span>
-      </div>
-    </li>
-    <li onclick="selectTrack(1)">
-      <div class="track-item">
-        <img class = "image" src="assets/MOLCHAT_DOMA.jpg" >
-        <span>Судно — MOLCHAT DOMA</span>
-      </div>
-    </li>
-    <li onclick="selectTrack(2)">
-      <div class="track-item">
-        <img class = "image" src="assets/YHHB.jpg" >
-        <span>В тумане белом — УННВ</span>
-      </div>
-    </li>
-    <li onclick="selectTrack(3)">
-      <div class="track-item">
-        <img class = "image" src="assets/RADIOTAPOK.jpg" >
-        <span>Фантом — RADIOTAPOK</span>
-      </div>
-    </li>
-  </ul>
-</div>
-  
+    <h2>Список треков</h2>
+    <ul id="track-items"></ul>
+  </div>
+
   <div id="player" class="hidden">
     <img id="cover" src="" alt="Обложка" width="200" />
     <h3 id="title">Название трека</h3>
     <p id="artist">Исполнитель</p>
-  
+
     <audio id="audio" controls></audio>
-    
+
     <div class="controls">
-      <img src="assets/left.png" alt="Назад к списку" onclick="goBack()" />
-      <img src="assets/rewind.png" alt="Предыдущий" onclick="prevTrack()" />
-      <img id="play-button" src="assets/play.png" alt="Пауза/Воспроизведение" onclick="playPause()" />
-      <img src="assets/forward.png" alt="Следующий" onclick="nextTrack()" />
-      <img src="assets/refresh.png" alt="Перемешать" onclick="shuffleTracks()" />
+      <img src="assets/left.png" alt="Назад к списку" id="back-button" />
+      <img src="assets/rewind.png" alt="Предыдущий" id="prev-button" />
+      <img id="play-button" src="assets/play.png" alt="Пауза/Воспроизведение" />
+      <img src="assets/forward.png" alt="Следующий" id="next-button" />
+      <img src="assets/refresh.png" alt="Перемешать" id="shuffle-button" />
     </div>
   </div>
-  
-  <script src="script.js"></script>
+
+  <script src="script.js"></script> 
 </body>
 </html>
