@@ -3,29 +3,53 @@ const tracks = [
     title: "Зима",
     artist: "ooes",
     src: "assets/Ooes - Зима.mp3",
-    cover: "assets/ooes.jpg"
+    cover: "https://i1.sndcdn.com/artworks-16e0JlT1xH2KIRFr-CafHmw-t500x500.jpg"
   },
   {
     title: "Судно",
     artist: "MOLCHAT DOMA",
     src: "assets/Молчат Дома - Судно (Борис Рыжий).mp3",
-    cover: "assets/MOLCHAT_DOMA.jpg"
+    cover: "https://images.genius.com/0f4fb52bc2b9184f6ea46a9ea6b3589b.1000x1000x1.png"
   },
   {
     title: "В тумане белом",
     artist: "УННВ",
     src: "assets/УННВ - В тумане белом.mp3",
-    cover: "assets/YHHB.jpg"
+    cover: "https://lastfm.freetls.fastly.net/i/u/ar0/b3f0b32c703ba3d8308e4edf1f22cdfc.jpg"
   },
   {
     title: "Фантом",
     artist: "RADIOTAPOK",
     src: "assets/Radio Tapok - Фантом.mp3",
-    cover: "assets/RADIOTAPOK.jpg"
+    cover: "https://radiotapok.ru/templates/rt/img/covers2/t9.jpg"
   }
 ];
 
 let currentTrack = 0;
+
+function renderTrackList() {
+  const trackItems = document.getElementById("track-items");
+  trackItems.innerHTML = "";
+
+  tracks.forEach((track, index) => {
+    const li = document.createElement("li");
+    li.classList.add("track-item");
+
+    const img = document.createElement("img");
+    img.src = track.cover;
+    img.alt = "Обложка";
+    img.classList.add("image");
+
+    const text = document.createElement("span");
+    text.textContent = `${track.title} — ${track.artist}`;
+
+    li.appendChild(img);
+    li.appendChild(text);
+
+    li.addEventListener("click", () => selectTrack(index));
+    trackItems.appendChild(li);
+  });
+}
 
 function selectTrack(index) {
   currentTrack = index;
@@ -85,4 +109,14 @@ function goBack() {
 
 document.getElementById("audio").addEventListener("ended", () => {
   document.getElementById("play-button").src = "assets/play.png";
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  renderTrackList();
+
+  document.getElementById("play-button").addEventListener("click", playPause);
+  document.getElementById("next-button").addEventListener("click", nextTrack);
+  document.getElementById("prev-button").addEventListener("click", prevTrack);
+  document.getElementById("shuffle-button").addEventListener("click", shuffleTracks);
+  document.getElementById("back-button").addEventListener("click", goBack);
 });
