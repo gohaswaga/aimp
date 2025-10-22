@@ -12,10 +12,6 @@ body {
 .hidden {
   display: none;
 }
-.left {
-    width: 32px;         
-  height: 32px;
-}
 
 h2, h3 {
   margin: 0 0 20px;
@@ -40,36 +36,76 @@ li:hover {
   background-color: #3a3a3a;
 }
 
+.track-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.image {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+#player {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 #cover {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   border-radius: 10px;
-  margin: 20px 0;
+  margin: 20px auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
+#title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 #artist {
+  font-size: 16px;
   color: #bbbbbb;
   margin-bottom: 20px;
 }
 
 audio {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
+  outline: none;
 }
 
 .controls {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .controls img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   filter: invert(1);
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 .controls img:hover {
@@ -80,9 +116,4 @@ audio {
   width: 100%;
   margin-top: 15px;
   accent-color: #ffffff;
-}
-
-.image{
-    width: 32px;         
-    height: 32px;
 }
