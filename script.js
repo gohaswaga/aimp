@@ -107,16 +107,23 @@ function goBack() {
   document.getElementById("track-list").classList.remove("hidden");
 }
 
-document.getElementById("audio").addEventListener("ended", () => {
-  document.getElementById("play-button").src = "assets/play.png";
-});
-
 window.addEventListener("DOMContentLoaded", () => {
   renderTrackList();
+
+  const audio = document.getElementById("audio");
+  const volumeSlider = document.getElementById("volume");
 
   document.getElementById("play-button").addEventListener("click", playPause);
   document.getElementById("next-button").addEventListener("click", nextTrack);
   document.getElementById("prev-button").addEventListener("click", prevTrack);
   document.getElementById("shuffle-button").addEventListener("click", shuffleTracks);
   document.getElementById("back-button").addEventListener("click", goBack);
+
+  document.getElementById("audio").addEventListener("ended", () => {
+    document.getElementById("play-button").src = "assets/play.png";
+  });
+
+  volumeSlider.addEventListener("input", () => {
+    audio.volume = volumeSlider.value;
+  });
 });
